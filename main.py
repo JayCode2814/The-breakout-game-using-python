@@ -44,7 +44,7 @@ window.onkey(paddle.go_right, "s")
 
 build_bricks()
 game_is_on = True
-highest_speed = 0.002
+highest_speed = 0.003
 
 #display message
 def show_message(text):
@@ -79,7 +79,8 @@ while game_is_on:
             ball.bounce_y()
             brick.goto(1000, 1000)
             bricks.remove(brick)
-            ball.move_speed *= 0.72
+            if ball.move_speed > highest_speed:
+                ball.move_speed *= 0.72
 
 #display win after all bricks remove
     if not bricks:
